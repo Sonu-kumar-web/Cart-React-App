@@ -1,6 +1,7 @@
 import React from 'react';
 
 class CartItem extends React.Component{
+    // Set state 
     constructor(){
         super();
         this.state={
@@ -9,7 +10,21 @@ class CartItem extends React.Component{
             qty: 1,
             img: ''
         }
+
+        // Method 2 for increase
+        // this.increaseQuantity = this.increaseQuantity.bind(this);
     }
+
+    // Method 1 for increase
+    // increaseQuantity () {
+    //     console.log('this', this.state);
+    // }
+
+    // Method 3 For increase
+    increaseQuantity = () => {
+        console.log('this', this.state);
+    }
+
     render(){
         const { price, title, qty } = this.state;
         return (
@@ -24,9 +39,28 @@ class CartItem extends React.Component{
                     <div className="cart-item-actions">
                         {/* Buttons */}
                         {/* copy icon address from https://www.flaticon.com/ and paste in src */}
-                        <img alt="increase" className="action-icons" src="https://image.flaticon.com/icons/svg/1828/1828926.svg" />
-                        <img alt="decrease" className="action-icons" src="https://image.flaticon.com/icons/svg/1828/1828906.svg" />
-                        <img alt="delete" className="action-icons" src="https://image.flaticon.com/icons/svg/1214/1214428.svg" />
+                        <img 
+                            alt="increase" 
+                            className="action-icons" 
+                            src="https://image.flaticon.com/icons/svg/1828/1828926.svg" 
+
+                            // for Method 1
+                            // onClick={this.increaseQuantity.bind(this)}
+
+                            // For method 2 and 3
+                            onClick={this.increaseQuantity}
+
+                        />
+                        <img 
+                            alt="decrease" 
+                            className="action-icons" 
+                            src="https://image.flaticon.com/icons/svg/1828/1828906.svg" 
+                        />
+                        <img 
+                            alt="delete" 
+                            className="action-icons" 
+                            src="https://image.flaticon.com/icons/svg/1214/1214428.svg" 
+                        />
 
                     </div>
                 </div>
