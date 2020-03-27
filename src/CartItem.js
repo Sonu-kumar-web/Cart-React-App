@@ -23,7 +23,7 @@ class CartItem extends React.Component{
     // }
 
     // Method 3 For increase
-    increaseQuantity = () => {
+    // increaseQuantity = () => {
         // console.log('this', this.state);
 
         // setState form 1
@@ -32,12 +32,12 @@ class CartItem extends React.Component{
         // });
 
         // setState form 2 - if previous state required then use this
-        this.setState((prevState) => {
-            return {
-                qty: prevState.qty +1
-            }
-        });
-    }
+    //     this.setState((prevState) => {
+    //         return {
+    //             qty: prevState.qty +1
+    //         }
+    //     });
+    // }
 
     // testing () {
   //   const promise = new Promise((resolve, reject) => {
@@ -58,17 +58,17 @@ class CartItem extends React.Component{
   //   });
   // }
 
-    decreaseQuantity = () =>{
-        this.setState((prevState) => {
-            const {qty}=this.state;
-            if(qty === 0){
-                return;
-            }
-            return{
-                qty: prevState.qty -1
-            }
-        });
-    }
+    // decreaseQuantity = () =>{
+    //     this.setState((prevState) => {
+    //         const {qty}=this.state;
+    //         if(qty === 0){
+    //             return;
+    //         }
+    //         return{
+    //             qty: prevState.qty -1
+    //         }
+    //     });
+    // }
 
     render(){
         // const { price, title, qty } = this.state;
@@ -79,6 +79,7 @@ class CartItem extends React.Component{
 
         return (
             <div className="cart-item">
+                {this.props.jsx}
                 <div className="left-block">
                     <img  style={ styles.images } alt="" />
                 </div>
@@ -98,14 +99,20 @@ class CartItem extends React.Component{
                             // onClick={this.increaseQuantity.bind(this)}
 
                             // For method 2 and 3
-                            onClick={this.increaseQuantity}
+                            // onClick={this.increaseQuantity}
+                            
+                            // Increase qty by props
+                            onClick = { () => this.props.onIncreaseQuantity(this.props.product)}
 
                         />
                         <img 
                             alt="decrease" 
                             className="action-icons" 
                             src="https://image.flaticon.com/icons/svg/1828/1828906.svg" 
-                            onClick= {this.decreaseQuantity}                        
+                            // onClick= {this.decreaseQuantity}
+                            
+                            // Decrease qty by props
+                            onClick = { () => this.props.onDecreaseQuantity(this.props.product)}
                             />
                         <img 
                             alt="delete" 
