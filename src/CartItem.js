@@ -89,7 +89,7 @@ const CartItem = (props) =>{
         return (
             <div className="cart-item">
                 <div className="left-block">
-                    <img  style={ styles.images } alt="" />
+                    <img  style={ styles.images } src={product.img} alt="" />
                 </div>
                 <div className="right-block">
                     <div style={{ fontSize: 25 }} > {title} </div>
