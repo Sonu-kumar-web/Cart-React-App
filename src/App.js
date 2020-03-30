@@ -16,17 +16,36 @@ class App extends React.Component{
 
 // Mounting phase
 componentDidMount() {
+  // firebase
+  // .firestore()
+  // .collection("products")
+  // .get()
+  // .then(snapshot => {
+  //   const products =snapshot.docs.map(doc => {
+  //     const data = doc.data();
+  //     data["id"]=doc.id;
+  //     return data;
+  //   });
+  //   this.setState({ 
+  //     products, 
+  //     loading: false 
+  //   });
+  // });
+
+  // Add onSnapshot listener for direct reflect the change without refresh
   firebase
   .firestore()
   .collection("products")
-  .get()
-  .then(snapshot => {
+  .onSnapshot((snapshot) => {
     const products =snapshot.docs.map(doc => {
       const data = doc.data();
       data["id"]=doc.id;
       return data;
     });
-    this.setState({ products, loading: false });
+    this.setState({ 
+      products, 
+      loading: false 
+    });
   });
 }
 
