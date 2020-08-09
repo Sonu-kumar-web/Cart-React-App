@@ -13,6 +13,17 @@ const CartItem = (props) => {
       onDeleteProduct,
    } = props;
 
+   const userVerification = () => {
+      let password = prompt(
+         `Please enter the password to remove ${product.title} from your cart.`
+      );
+      if (password === "Sonu11") {
+         onDeleteProduct(product.id);
+      } else {
+         return;
+      }
+   };
+
    return (
       <div className="cart-item">
          <div className="left-block">
@@ -40,7 +51,8 @@ const CartItem = (props) => {
                   alt="delete"
                   className="action-icons"
                   src="https://image.flaticon.com/icons/svg/1214/1214428.svg"
-                  onClick={() => onDeleteProduct(product.id)}
+                  // onClick={() => onDeleteProduct(product.id)}
+                  onClick={userVerification}
                />
             </div>
          </div>
